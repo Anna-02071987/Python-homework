@@ -1,5 +1,6 @@
 import math
 
+
 def square(side):
     """
     Вычисляет площадь квадрата.
@@ -10,6 +11,7 @@ def square(side):
     if isinstance(side, float) and not side.is_integer():
         return math.ceil(area)
     return area
+
 
 # Пример использования
 print(square(5))     # 25

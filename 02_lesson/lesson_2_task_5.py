@@ -13,6 +13,7 @@ def month_to_season(month):
     else:
         return "Неверный номер месяца"
 
+
 # Примеры использования
 print(month_to_season(2))   # Зима
 print(month_to_season(5))   # Весна
