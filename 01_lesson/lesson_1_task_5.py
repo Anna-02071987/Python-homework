@@ -1,3 +1,4 @@
+﻿# Файл для задания урока 1
 def print_num(num):
     print(num, end="")
 
