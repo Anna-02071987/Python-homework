@@ -1,7 +1,5 @@
-﻿# Файл для задания урока 1
+# -*- coding: utf-8 -*-
 def print_greeting():
     print("Привет, мир!")
 
-if __name__ == "__main__":
-    print_greeting()
-    
+print_greeting()

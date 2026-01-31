@@ -1,3 +1,3 @@
-﻿# Файл для задания урока 1
-my_name = "Анна"
-print(my_name)
+# -*- coding: utf-8 -*-
+my_name = ""
+print(my_name) 
