@@ -1,18 +1,18 @@
-# Домашнее задание 7 - Page Object Pattern 
+# Homework 7 - Page Object Pattern 
  
-## Задание 
-Реализация автотестов с использованием паттерна Page Object. 
+## Assignment 
+Implementation of autotests using Page Object pattern. 
  
-## Структура проекта 
-- pages/ - классы Page Object 
-- tests/ - тесты 
-- conftest.py - фикстуры pytest 
-- requirements.txt - зависимости 
+## Project Structure 
+- pages/ - Page Object classes 
+- tests/ - Tests 
+- conftest.py - pytest fixtures 
+- requirements.txt - Dependencies 
  
-## Запуск тестов 
-1. Установите зависимости: pip install -r requirements.txt 
-2. Запустите тесты: pytest tests/ 
+## Running Tests 
+1. Install dependencies: pip install -r requirements.txt 
+2. Run tests: pytest tests/ 
  
-## Тесты 
-1. Калькулятор (Chrome) - test_calculator.py 
-2. Интернет-магазин (Firefox) - test_saucedemo.py 
+## Tests 
+1. Calculator (Chrome) - test_calculator.py 
+2. E-commerce (Firefox) - test_saucedemo.py 
