@@ -1,1 +1,2 @@
-"# Control work 6 - test file" 
+"" 
+"# End of test file" 
