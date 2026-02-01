@@ -3,34 +3,27 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 
 class CalculatorPage:
+    URL = "https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html"
+
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(driver, 50)
+        self.delay_input = (By.ID, "delay")
+        self.screen = (By.CLASS_NAME, "screen")
 
     def open(self):
-        url = "https://bonigarcia.dev/"
-        url += "selenium-webdriver-java/slow-calculator.html"
-        self.driver.get(url)
+        self.driver.get(self.URL)
 
-    def set_delay(self, delay_value):
-        delay_field = self.driver.find_element(By.CSS_SELECTOR, "#delay")
-        delay_field.clear()
-        delay_field.send_keys(str(delay_value))
+    def set_delay(self, seconds: str):
+        field = self.driver.find_element(*self.delay_input)
+        field.clear()
+        field.send_keys(seconds)
 
-    def click_button(self, button_text):
-        xpath = f"//span[text()='{button_text}']"
-        button = self.driver.find_element(By.XPATH, xpath)
-        button.click()
+    def press_button(self, value: str):
+        btn = self.driver.find_element(By.XPATH, f"//span[text()='{value}']")
+        btn.click()
 
-    def click_operator(self, operator):
-        if operator == '=':
-            button = self.driver.find_element(
-                By.CSS_SELECTOR, ".operator[onclick*='equals']")
-            button.click()
-        else:
-            self.click_button(operator)
-
-    def get_result(self):
-        result_field = self.driver.find_element(By.CSS_SELECTOR, ".screen")
-        self.wait.until(lambda driver: result_field.text not in ['', '0'])
-        return result_field.text
+    def get_result(self, timeout: int = 70) -> str:
+        WebDriverWait(self.driver, timeout).until(
+            lambda d: d.find_element(*self.screen).text == "15"
+        )
+        return self.driver.find_element(*self.screen).text

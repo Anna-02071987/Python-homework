@@ -1,28 +1,27 @@
+import pytest
 from selenium import webdriver
+
 from pages.calculator_page import CalculatorPage
 
 
-def test_calculator_with_delay():
+@pytest.fixture()
+def driver():
     driver = webdriver.Chrome()
     driver.maximize_window()
-
-    try:
-        calculator_page = CalculatorPage(driver)
-
-        calculator_page.open()
-        calculator_page.set_delay(45)
-
-        calculator_page.click_button('7')
-        calculator_page.click_button('+')
-        calculator_page.click_button('8')
-        calculator_page.click_operator('=')
-
-        result = calculator_page.get_result()
-        assert result == '15', f"Expected result '15', but got '{result}'"
-        print(f"Test passed! Result: {result}")
-    finally:
-        driver.quit()
+    yield driver
+    driver.quit()
 
 
-if __name__ == "__main__":
-    test_calculator_with_delay()
+def test_slow_calculator_sum(driver):
+    page = CalculatorPage(driver)
+
+    page.open()
+    page.set_delay("45")
+
+    page.press_button("7")
+    page.press_button("+")
+    page.press_button("8")
+    page.press_button("=")
+
+    result = page.get_result()
+    assert result == "15"
