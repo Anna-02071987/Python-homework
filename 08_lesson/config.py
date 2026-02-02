@@ -1,17 +1,10 @@
-import os
-from dotenv import load_dotenv
-
-
-load_dotenv()
-
-
-class Config:
-    """Configuration class for Yougile API"""
-
-    BASE_URL = "https://yougile.com/api-v2"
-    API_KEY = os.getenv("YOUGILE_API_KEY", "")
-
-    HEADERS = {
-        "Authorization": f"Bearer {API_KEY}",
-        "Content-Type": "application/json"
-    }
+import os 
+ 
+BASE_URL = os.getenv("YOUGILE_BASE_URL") 
+API_TOKEN = os.getenv("YOUGILE_API_TOKEN") 
+ 
+if not BASE_URL: 
+    raise RuntimeError("Не задана переменная окружения YOUGILE_BASE_URL") 
+ 
+if not API_TOKEN: 
+    raise RuntimeError("Не задана переменная окружения YOUGILE_API_TOKEN") 
