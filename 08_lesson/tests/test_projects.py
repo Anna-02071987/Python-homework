@@ -1,6 +1,6 @@
 import uuid 
  
-from client.yougile_api import YougileAPI 
+from yougile_api import YougileAPI 
  
  
 # ---------- POST ---------- 
