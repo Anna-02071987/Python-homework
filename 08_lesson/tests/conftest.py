@@ -2,7 +2,7 @@ import uuid
  
 import pytest 
  
-from yougile_api import YougileAPI 
+from client.yougile_api import YougileAPI 
  
  
 @pytest.fixture() 
