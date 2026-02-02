@@ -6,12 +6,12 @@ from client.yougile_api import YougileAPI
  
  
 @pytest.fixture() 
-def api() -
+def api(): 
     return YougileAPI() 
  
  
 @pytest.fixture() 
-def created_project(api: YougileAPI) -
+def created_project(api): 
     title = f"test_project_{uuid.uuid4()}" 
     r = api.create_project(title) 
  
